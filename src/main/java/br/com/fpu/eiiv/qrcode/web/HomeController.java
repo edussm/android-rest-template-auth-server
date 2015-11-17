@@ -20,10 +20,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.fpu.eiiv.qrcode.domain.Message;
@@ -44,7 +44,7 @@ public class HomeController {
 		return new Message(100, "Congratulations!", "You have accessed a Basic Auth protected resource.");
 	}
 	
-	@RequestMapping(value = "/participante", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/participantes", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Iterable<Participante> getParticipantes() {
 		return participanteRepository.findAll();
 	}
@@ -55,8 +55,8 @@ public class HomeController {
 		return participanteRepository.save(participante);
 	}
 	
-	@RequestMapping(value = "/participante?id={id}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody Participante getParticipante(@RequestParam("id") long id) {
+	@RequestMapping(value = "/participante/{id}", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Participante getParticipante(@PathVariable("id") long id) {
 		logger.debug(String.format("Buscando participante com o id %s", id));
 		Participante participante = participanteRepository.findOne(id);
 		return participante;

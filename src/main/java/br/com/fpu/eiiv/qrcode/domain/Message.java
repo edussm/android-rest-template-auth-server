@@ -16,9 +16,6 @@
 
 package br.com.fpu.eiiv.qrcode.domain;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "message")
 public class Message {
 
 	private long id;
