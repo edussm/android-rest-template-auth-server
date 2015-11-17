@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package showcase;
+package br.com.fpu.eiiv.qrcode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

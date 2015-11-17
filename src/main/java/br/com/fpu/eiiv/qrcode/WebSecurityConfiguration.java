@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package showcase;
+package br.com.fpu.eiiv.qrcode;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -44,7 +44,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/**")
 					.hasRole("USER")
 					.and()
-				.httpBasic();
+					.httpBasic()
+					.and()
+					.csrf().disable();
 		// @formatter:on
 	}
 

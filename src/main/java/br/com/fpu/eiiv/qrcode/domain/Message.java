@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package showcase;
+package br.com.fpu.eiiv.qrcode.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
